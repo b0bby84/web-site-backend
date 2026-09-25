@@ -10,7 +10,12 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
+# Starta MongoDB i GitHub Actions runner-miljö
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
     steps:
       # 1. Hämta källkoden från GitHub-repot
       - name: Check out code
